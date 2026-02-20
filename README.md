@@ -1,6 +1,6 @@
 # SurrealGIS
 
-PostGIS-equivalent geospatial extension for SurrealDB v3, built as a [Surrealism](https://surrealdb.com/docs/surrealdb/querying/surrealism/tutorial) WASM plugin in Rust.
+PostGIS-equivalent geospatial extension for SurrealDB v3, built as a Surrealism WASM plugin in Rust.
 
 SurrealDB ships with only 5 geo functions and 5 spatial operators. SurrealGIS delivers **46 spatial functions** covering constructors, accessors, predicates (DE-9IM), measurement, CRS transforms, and serialization formats (WKT/WKB/GeoJSON/EWKT) -- a **10x improvement** over SurrealDB's built-in capabilities, packaged as a single `.surli` plugin (657KB).
 
