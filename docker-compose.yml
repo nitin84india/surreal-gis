@@ -2,19 +2,21 @@ version: "3.8"
 
 services:
   surrealdb:
-    image: surrealdb/surrealdb:v2
-    container_name: surrealgis-surrealdb
+    image: surrealdb/surrealdb:latest
+    container_name: surrealdb
     ports:
       - "8000:8000"
     volumes:
       - surrealdb-data:/data
-      - ./dist:/plugins
+      - ./dist:/data/plugins
+    environment:
+      - SURREAL_CAPS_ALLOW_EXPERIMENTAL=files,surrealism
+      - SURREAL_BUCKET_FOLDER_ALLOWLIST=/data/plugins
     command: >
       start
-      --log trace
       --user root
       --pass root
-      file:/data/surrealgis.db
+      rocksdb:/data/surrealgis.db
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 10s

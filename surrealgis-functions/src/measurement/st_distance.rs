@@ -13,19 +13,19 @@ pub fn st_distance(a: &SurrealGeometry, b: &SurrealGeometry) -> Result<f64, Func
 
     if a.srid().is_geographic() {
         // Use geodesic distance for geographic CRS (returns meters)
-        // Geodesic::distance only supports Point-to-Point in geo 0.29
+        // Geodesic distance only supports Point-to-Point
         match (&ga, &gb) {
             (geo_types::Geometry::Point(pa), geo_types::Geometry::Point(pb)) => {
-                Ok(Geodesic::distance(*pa, *pb))
+                Ok(Geodesic.distance(*pa, *pb))
             }
             _ => {
                 // Fallback to Euclidean for non-point types
-                Ok(Euclidean::distance(&ga, &gb))
+                Ok(Euclidean.distance(&ga, &gb))
             }
         }
     } else {
         // Use Euclidean distance for projected CRS
-        Ok(Euclidean::distance(&ga, &gb))
+        Ok(Euclidean.distance(&ga, &gb))
     }
 }
 
@@ -37,7 +37,7 @@ pub fn st_distance_sphere(a: &SurrealGeometry, b: &SurrealGeometry) -> Result<f6
 
     match (&ga, &gb) {
         (geo_types::Geometry::Point(pa), geo_types::Geometry::Point(pb)) => {
-            Ok(Geodesic::distance(*pa, *pb))
+            Ok(Geodesic.distance(*pa, *pb))
         }
         _ => Err(FunctionError::UnsupportedOperation(
             "st_distance_sphere only supports Point-to-Point".to_string(),

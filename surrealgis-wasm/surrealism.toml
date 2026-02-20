@@ -1,0 +1,8 @@
+[package]
+organisation = "locobuzz"
+name = "surrealgis"
+version = "0.1.0"
+
+[capabilities]
+allow_scripting = false
+allow_arbitrary_queries = false

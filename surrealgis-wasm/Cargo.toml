@@ -2,7 +2,7 @@
 name = "surrealgis-wasm"
 description = "WASM boundary for SurrealGIS - Surrealism plugin exports and anti-corruption layer"
 version.workspace = true
-edition.workspace = true
+edition = "2024"
 authors.workspace = true
 license.workspace = true
 
@@ -18,6 +18,9 @@ geo-types = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 thiserror = { workspace = true }
+surrealism = { workspace = true }
+surrealdb-types = { workspace = true }
+anyhow = { workspace = true }
 
 [dev-dependencies]
 approx = { workspace = true }

@@ -1,4 +1,5 @@
-use geo::{Euclidean, Geodesic, Length};
+use geo::line_measures::LengthMeasurable;
+use geo::{Euclidean, Geodesic};
 use surrealgis_core::geometry::{GeometryType, SurrealGeometry};
 
 use crate::FunctionError;
@@ -13,14 +14,14 @@ pub fn st_length(geom: &SurrealGeometry) -> Result<f64, FunctionError> {
         GeometryType::LineString(_) | GeometryType::MultiLineString(_) => {
             if geom.srid().is_geographic() {
                 match &geo_geom {
-                    geo_types::Geometry::LineString(ls) => Ok(ls.length::<Geodesic>()),
-                    geo_types::Geometry::MultiLineString(mls) => Ok(mls.length::<Geodesic>()),
+                    geo_types::Geometry::LineString(ls) => Ok(ls.length(&Geodesic)),
+                    geo_types::Geometry::MultiLineString(mls) => Ok(mls.length(&Geodesic)),
                     _ => unreachable!(),
                 }
             } else {
                 match &geo_geom {
-                    geo_types::Geometry::LineString(ls) => Ok(ls.length::<Euclidean>()),
-                    geo_types::Geometry::MultiLineString(mls) => Ok(mls.length::<Euclidean>()),
+                    geo_types::Geometry::LineString(ls) => Ok(ls.length(&Euclidean)),
+                    geo_types::Geometry::MultiLineString(mls) => Ok(mls.length(&Euclidean)),
                     _ => unreachable!(),
                 }
             }

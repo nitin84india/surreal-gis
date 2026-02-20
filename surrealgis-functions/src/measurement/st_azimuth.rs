@@ -20,7 +20,7 @@ pub fn st_azimuth(a: &SurrealGeometry, b: &SurrealGeometry) -> Result<f64, Funct
         }
     };
 
-    let bearing_degrees = Geodesic::bearing(pa, pb);
+    let bearing_degrees = Geodesic.bearing(pa, pb);
     // Convert from degrees to radians
     let bearing_radians = bearing_degrees.to_radians();
     // Normalize to [0, 2*PI)

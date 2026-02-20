@@ -1,4 +1,5 @@
-use geo::{Euclidean, Geodesic, Length};
+use geo::line_measures::LengthMeasurable;
+use geo::{Euclidean, Geodesic};
 use surrealgis_core::geometry::{GeometryType, SurrealGeometry};
 
 use crate::FunctionError;
@@ -13,9 +14,9 @@ pub fn st_perimeter(geom: &SurrealGeometry) -> Result<f64, FunctionError> {
         (geo_types::Geometry::Polygon(poly), _) => {
             let exterior = poly.exterior();
             if geom.srid().is_geographic() {
-                Ok(exterior.length::<Geodesic>())
+                Ok(exterior.length(&Geodesic))
             } else {
-                Ok(exterior.length::<Euclidean>())
+                Ok(exterior.length(&Euclidean))
             }
         }
         (geo_types::Geometry::MultiPolygon(mp), _) => {
@@ -23,9 +24,9 @@ pub fn st_perimeter(geom: &SurrealGeometry) -> Result<f64, FunctionError> {
             for poly in &mp.0 {
                 let exterior = poly.exterior();
                 if geom.srid().is_geographic() {
-                    total += exterior.length::<Geodesic>();
+                    total += exterior.length(&Geodesic);
                 } else {
-                    total += exterior.length::<Euclidean>();
+                    total += exterior.length(&Euclidean);
                 }
             }
             Ok(total)
