@@ -27,3 +27,11 @@ lcov.info
 # Environment
 .env
 .env.local
+
+# Local SurrealDB data
+.surrealdb-data/
+
+# Working documents
+*.docx
+output.md
+prd.md

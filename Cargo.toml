@@ -28,6 +28,10 @@ proj4rs = { version = "0.1", features = ["crs-definitions"] }
 # Spatial index
 rstar = "0.12"
 
+# Processing & clustering
+voronoice = "0.2"
+rand = "0.8"
+
 # SurrealDB
 surrealdb = "2.2"
 

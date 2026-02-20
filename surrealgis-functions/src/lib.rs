@@ -4,6 +4,12 @@ pub mod relationships;
 pub mod measurement;
 pub mod output;
 pub mod crs;
+pub mod affine;
+pub mod processing;
+pub mod overlay;
+pub mod editors;
+pub mod linear_ref;
+pub mod clustering;
 
 use thiserror::Error;
 
