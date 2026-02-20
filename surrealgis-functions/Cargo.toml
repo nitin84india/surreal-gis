@@ -9,10 +9,13 @@ license.workspace = true
 [dependencies]
 surrealgis-core = { path = "../surrealgis-core" }
 surrealgis-crs = { path = "../surrealgis-crs" }
+surrealgis-index = { path = "../surrealgis-index" }
 geo = { workspace = true }
 geo-types = { workspace = true }
 thiserror = { workspace = true }
 serde_json = { workspace = true }
+voronoice = { workspace = true }
+rand = { workspace = true }
 
 [dev-dependencies]
 approx = { workspace = true }
