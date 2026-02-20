@@ -1,0 +1,33 @@
+{
+  "description": "PostGIS reference outputs for st_area function",
+  "reference_version": "PostGIS 3.4",
+  "tests": [
+    {
+      "name": "unit_square",
+      "input": {
+        "wkt": "POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))",
+        "srid": 3857
+      },
+      "expected": 1.0,
+      "tolerance": 0.000001
+    },
+    {
+      "name": "unit_square_with_hole",
+      "input": {
+        "wkt": "POLYGON((0 0, 10 0, 10 10, 0 10, 0 0), (2 2, 8 2, 8 8, 2 8, 2 2))",
+        "srid": 3857
+      },
+      "expected": 64.0,
+      "tolerance": 0.000001
+    },
+    {
+      "name": "triangle",
+      "input": {
+        "wkt": "POLYGON((0 0, 4 0, 2 3, 0 0))",
+        "srid": 3857
+      },
+      "expected": 6.0,
+      "tolerance": 0.000001
+    }
+  ]
+}

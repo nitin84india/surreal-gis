@@ -1,0 +1,36 @@
+{
+  "description": "PostGIS reference outputs for st_distance function",
+  "reference_version": "PostGIS 3.4",
+  "tests": [
+    {
+      "name": "geodesic_nyc_to_la",
+      "input": {
+        "a": "POINT(-73.9857 40.7484)",
+        "b": "POINT(-118.2437 34.0522)",
+        "srid": 4326
+      },
+      "expected_meters": 3944422.232,
+      "tolerance": 1.0
+    },
+    {
+      "name": "geodesic_london_to_paris",
+      "input": {
+        "a": "POINT(-0.1278 51.5074)",
+        "b": "POINT(2.3522 48.8566)",
+        "srid": 4326
+      },
+      "expected_meters": 343556.108,
+      "tolerance": 1.0
+    },
+    {
+      "name": "euclidean_simple",
+      "input": {
+        "a": "POINT(0 0)",
+        "b": "POINT(3 4)",
+        "srid": 3857
+      },
+      "expected": 5.0,
+      "tolerance": 0.000001
+    }
+  ]
+}

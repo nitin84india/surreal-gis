@@ -1,0 +1,16 @@
+[package]
+name = "surrealgis-index"
+description = "Spatial indexing for SurrealGIS - R*-tree index with bbox pre-filtering"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+surrealgis-core = { path = "../surrealgis-core" }
+rstar = { workspace = true }
+geo-types = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+approx = { workspace = true }

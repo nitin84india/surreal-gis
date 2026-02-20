@@ -1,0 +1,18 @@
+[package]
+name = "surrealgis-crs"
+description = "CRS management for SurrealGIS - EPSG registry and coordinate reprojection via proj4rs"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+surrealgis-core = { path = "../surrealgis-core" }
+proj4rs = { workspace = true }
+geo-types = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+approx = { workspace = true }

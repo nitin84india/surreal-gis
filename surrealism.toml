@@ -1,0 +1,10 @@
+[plugin]
+org = "locobuzz"
+name = "surrealgis"
+version = "0.1.0"
+description = "PostGIS-equivalent geospatial extension for SurrealDB - spatial functions, CRS transforms, and R-Tree indexing"
+
+[build]
+crate = "surrealgis-wasm"
+target = "wasm32-unknown-unknown"
+profile = "release"

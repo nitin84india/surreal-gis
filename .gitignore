@@ -1,0 +1,29 @@
+# Rust
+/target
+**/*.rs.bk
+# Cargo.lock is committed because this workspace produces a cdylib (WASM binary)
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/dist/
+*.surli
+*.wasm
+
+# Test coverage
+*.profraw
+tarpaulin-report.html
+lcov.info
+
+# Environment
+.env
+.env.local

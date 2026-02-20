@@ -1,0 +1,41 @@
+{
+  "description": "PostGIS reference outputs for st_transform function",
+  "reference_version": "PostGIS 3.4",
+  "tests": [
+    {
+      "name": "wgs84_to_web_mercator",
+      "input": {
+        "wkt": "POINT(-73.9857 40.7484)",
+        "from_srid": 4326,
+        "to_srid": 3857
+      },
+      "expected": {
+        "x": -8233451.761,
+        "y": 4979519.136
+      },
+      "tolerance": 1.0
+    },
+    {
+      "name": "web_mercator_to_wgs84",
+      "input": {
+        "wkt": "POINT(-8233451.761 4979519.136)",
+        "from_srid": 3857,
+        "to_srid": 4326
+      },
+      "expected": {
+        "x": -73.9857,
+        "y": 40.7484
+      },
+      "tolerance": 0.0001
+    },
+    {
+      "name": "round_trip_4326_3857_4326",
+      "input": {
+        "wkt": "POINT(2.3522 48.8566)",
+        "from_srid": 4326,
+        "to_srid": 3857
+      },
+      "expected_round_trip_tolerance": 0.000001
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  surrealdb:
+    image: surrealdb/surrealdb:v2
+    container_name: surrealgis-surrealdb
+    ports:
+      - "8000:8000"
+    volumes:
+      - surrealdb-data:/data
+      - ./dist:/plugins
+    command: >
+      start
+      --log trace
+      --user root
+      --pass root
+      file:/data/surrealgis.db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  surrealdb-data:

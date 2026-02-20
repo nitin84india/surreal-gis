@@ -1,0 +1,23 @@
+[package]
+name = "surrealgis-wasm"
+description = "WASM boundary for SurrealGIS - Surrealism plugin exports and anti-corruption layer"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+surrealgis-core = { path = "../surrealgis-core" }
+surrealgis-functions = { path = "../surrealgis-functions" }
+surrealgis-crs = { path = "../surrealgis-crs" }
+surrealgis-index = { path = "../surrealgis-index" }
+geo-types = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+approx = { workspace = true }
